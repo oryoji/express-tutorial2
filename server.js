@@ -4,12 +4,18 @@ const userRouter = require('./routes/user');
 
 const PORT = 8000;
 
-app.use(express.static('public'));
+// 静的ファイルの読み込み
+// app.use(express.static('public'));
+
+// 動的ファイルの読み込み
+app.set('view engine', 'pug')
+
 app.get('/', (req, res) => {
     // res.send('hello world');
     // res.sendStatus(404);
     // res.send('エラーです').sendStatus(404);
-    res.json({ msg: 'エラーです'}).sendStatus(404);
+    // res.json({ msg: 'エラーです'}).sendStatus(404);
+    res.render('index', { title: 'Hey', text: '動的ファイルを表示できたよ！' })
 });
 
 // ルーティング
