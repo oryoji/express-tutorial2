@@ -4,6 +4,7 @@ const userRouter = require('./routes/user');
 
 const PORT = 8000;
 
+app.use(express.static('public'));
 app.get('/', (req, res) => {
     // res.send('hello world');
     // res.sendStatus(404);
