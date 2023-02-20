@@ -4,6 +4,15 @@ const userRouter = require('./routes/user');
 
 const PORT = 8000;
 
+// ミドルウェア関数
+const myLogger = function (req, res, next) {
+    console.log(req.originalUrl);
+    next();
+};
+
+// ミドルウェアの実行
+app.use(myLogger);
+
 // 静的ファイルの読み込み
 // app.use(express.static('public'));
 
